@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:marchand/cart.dart';
+import 'package:marchand/provider/cart.dart';
 import 'package:provider/provider.dart';
-import 'fruits_master.dart';
+import 'screens/fruits_master.dart';
 
 void main() {
   runApp(ChangeNotifierProvider(
