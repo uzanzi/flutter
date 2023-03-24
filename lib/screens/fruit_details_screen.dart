@@ -34,17 +34,33 @@ class FruitDetailsScreen extends StatelessWidget {
                   const SizedBox(height: 75),
                 ],
               ),
-              TextButton(
-                  style: const ButtonStyle(
-                    foregroundColor:
-                        MaterialStatePropertyAll<Color>(Colors.white),
-                    backgroundColor:
-                        MaterialStatePropertyAll<Color>(Colors.red),
-                  ),
-                  onPressed: () {
-                    Provider.of<Cart>(context, listen: false).remove(fruit);
-                  },
-                  child: const Text('Supprimer du panier')),
+              Column(
+                children: [
+                  TextButton(
+                      style: const ButtonStyle(
+                        foregroundColor:
+                            MaterialStatePropertyAll<Color>(Colors.white),
+                        backgroundColor:
+                            MaterialStatePropertyAll<Color>(Colors.green),
+                      ),
+                      onPressed: () {
+                        Provider.of<Cart>(context, listen: false).add(fruit);
+                      },
+                      child: const Text('Ajouter au panier')),
+                  const SizedBox(height: 75),
+                  TextButton(
+                      style: const ButtonStyle(
+                        foregroundColor:
+                            MaterialStatePropertyAll<Color>(Colors.white),
+                        backgroundColor:
+                            MaterialStatePropertyAll<Color>(Colors.red),
+                      ),
+                      onPressed: () {
+                        Provider.of<Cart>(context, listen: false).remove(fruit);
+                      },
+                      child: const Text('Supprimer du panier')),
+                ],
+              )
             ],
           ),
           Expanded(
@@ -85,11 +101,6 @@ class FruitDetailsScreen extends StatelessWidget {
           )),
         ],
       )),
-      floatingActionButton: FloatingActionButton(
-        onPressed: () => Provider.of<Cart>(context, listen: false).add(fruit),
-        tooltip: 'Ajouter au panier',
-        child: const Icon(Icons.add),
-      ),
     );
   }
 }
